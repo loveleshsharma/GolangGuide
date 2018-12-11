@@ -10,6 +10,9 @@ func main() {
 	arr[0] = "One"
 	arr[1] = "Two"
 
+	updateArray(arr)
+	fmt.Println("Updated Array: ", arr)
+
 	// arr := [2]string{"One", "Two"}
 
 	// Slice with dynamic size
@@ -108,4 +111,8 @@ func sliceExp(arr []int) {
 
 	arr[0] = 99
 
+}
+
+func updateArray(arr [2]string) {
+	arr[0] = "Three"
 }

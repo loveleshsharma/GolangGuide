@@ -1,24 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"gotutorial/types"
+)
 
 // need to run main.go and Person.go together in order to run this
 
 func main() {
-	var p1 Person
-	p1.name = "Lovelesh"
-	p1.gender = "Male"
-	p1.age = 25
+	var p1 types.Person
+	p1.Name = "Lovelesh"
+	p1.Gender = "Male"
+	p1.Age = 25
 	fmt.Println(p1)
 
 	// structure literal
-	p2 := Person{"Gautam", "Male", 20}
+	p2 := types.Person{"Gautam", "Male", 20}
 	fmt.Println(p2)
 	// calling receiver function on that structure
-	fmt.Println(p2.getName())
+	fmt.Println(p2.GetName())
 
 	fmt.Println("------------")
-	p3 := newPersonWithValues("Thoughtworks", "Male", 25)
-	p3.display()
+	p3 := types.NewPersonWithValues("Thoughtworks", "Male", 25)
+	p3.Display()
 
 }
