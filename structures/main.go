@@ -24,4 +24,6 @@ func main() {
 	p3 := types.NewPersonWithValues("Thoughtworks", "Male", 25)
 	p3.Display()
 
+	p4 := []types.Person{{}, {}}
+
 }
