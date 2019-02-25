@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	file, err := os.Open("test.txt")
+	file, err := os.Open("files/test.txt")
 	if err != nil {
 		fmt.Println("error")
 		return
@@ -18,15 +18,21 @@ func main() {
 
 	r := bufio.NewReader(file)
 
-	for {
-		line, err := r.ReadString('\n')
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			fmt.Println("error reading file")
-			break
-		}
+	// for {
+	// 	line, err := r.ReadString('\n')
+	// 	if err == io.EOF {
+	// 		break
+	// 	} else if err != nil {
+	// 		fmt.Println("error reading file")
+	// 		break
+	// 	}
+	// 	fmt.Print(line)
+	// }
+
+	for line, err := r.ReadString('\n'); err != io.EOF; line, err = r.ReadString('\n') {
+
 		fmt.Print(line)
+
 	}
 
 }
