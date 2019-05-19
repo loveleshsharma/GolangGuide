@@ -9,9 +9,9 @@ import (
 
 func main() {
 
-	file, err := os.Open("files/test.txt")
+	file, err := os.Open("abc.txt")
 	if err != nil {
-		fmt.Println("error")
+		fmt.Println(err)
 		return
 	}
 	defer file.Close()

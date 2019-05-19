@@ -4,18 +4,20 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
 
-	file, err := os.Open("files/test.txt")
+	file, err := os.Open("test.txt")
 	if err != nil {
 		fmt.Println("error", err)
 	}
 	defer file.Close()
 
-	buffer := make([]byte, 1024)
+	buffer := make([]byte, 100000)
 
 	_, err = file.Read(buffer)
 
@@ -30,6 +32,12 @@ func main() {
 	for i := 0; i < len(lines); i++ {
 		fmt.Println(string(lines[i]))
 	}
+
+	tr := &http.Transport{
+		MaxIdleConnsPerHost: 1024,
+		TLSHandshakeTimeout: 0 * time.Second,
+	}
+	client = &http.Client{Transport: tr}
 
 	//lastNewLineIndex := bytes.LastIndex(buffer, []byte("\r\n"))
 
